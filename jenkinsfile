@@ -1,7 +1,7 @@
 def tomcatServerUrl = "http://172.173.216.209:8080/"
 pipeline {
   agent any
-  }
+  
 
   stages {
     //Use this code for inline pipeline script option
