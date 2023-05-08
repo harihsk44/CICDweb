@@ -1,10 +1,10 @@
 def tomcatServerUrl = "http://172.173.216.209:8080/"
 pipeline {
-  agent {
-    node {
-      label 'jenkins-slave'
-    }
-  }
+  //agent {
+   // node {
+   //   label 'jenkins-slave'
+   // }
+  //}
 
   stages {
     //Use this code for inline pipeline script option
