@@ -1,9 +1,6 @@
 def tomcatServerUrl = "http://172.173.216.209:8080/"
 pipeline {
-  agent {
-    node {
-      label 'Built-In Node'
-    }
+  agent any
   }
 
   stages {
