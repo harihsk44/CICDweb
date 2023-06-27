@@ -1,11 +1,12 @@
 def tomcatServerUrl = "http://172.173.216.209:8080/"
+//restrict pipeline into running in a container
 pipeline {
   agent any
   
 
   stages {
     //Use this code for inline pipeline script option
-    /* stage('Code checkout') {
+    /* stage('Clone') {
       steps {
         //download code from github
         git 'https://github.com/harihsk44/CICDweb.git'
@@ -26,6 +27,9 @@ pipeline {
             credentialsId: 'tomcat-credentials')],
           war: 'target/*.war',
           contextPath: 'pipeline-app'
+
+// deploy war file into a docker container
+// i think need install tomcat on the container as well
 
       }
     }
