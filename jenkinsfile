@@ -4,7 +4,7 @@ pipeline {
   agent {
         docker {
             image 'maven:latest'
-           // args ' -v /home/azureuser/containers/maven:/home/azureuser/containers/maven'
+            args ' -v /home/azureuser/containers/maven:/home/azureuser/containers/maven'
         }
     }
 
