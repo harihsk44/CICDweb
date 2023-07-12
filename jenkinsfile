@@ -16,7 +16,7 @@ pipeline {
         git 'https://github.com/harihsk44/CICDweb.git'
       }
 
-    }*/
+    }
     stage('Build') {
       steps {
         //Run the maven build
