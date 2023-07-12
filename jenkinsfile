@@ -10,7 +10,7 @@ pipeline {
 
   stages {
     //Use this code for inline pipeline script option
-    /* stage('Clone') {
+     stage('Clone') {
       steps {
         //download code from github
         git 'https://github.com/harihsk44/CICDweb.git'
