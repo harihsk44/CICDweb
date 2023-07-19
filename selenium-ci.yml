@@ -1,0 +1,16 @@
+stages:
+  - test
+
+selenium_tests:
+  stage: test
+  image: python:3.9
+  before_script:
+    - pip install -r requirements.txt  # If you have other dependencies, list them in requirements.txt
+    - wget https://chromedriver.storage.googleapis.com/LATEST_RELEASE -q -O - | xargs -I {} wget https://chromedriver.storage.googleapis.com/{}/chromedriver_linux64.zip -O /tmp/chromedriver_linux64.zip
+    - unzip /tmp/chromedriver_linux64.zip -d /tmp
+    - chmod +x /tmp/chromedriver
+    - mv /tmp/chromedriver /usr/local/bin/chromedriver
+  script:
+    - python test_selenium.py
+  tags:
+    - your_ci_cd_runner_tag  # Replace with the tag of your CI/CD runner (if applicable)
