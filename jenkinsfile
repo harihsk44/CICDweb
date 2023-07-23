@@ -63,7 +63,7 @@ pipeline {
             // Merge Test branch to main branch
         }
     }
-    */
+    
 
     stage('Cleanm') {
       steps {
@@ -71,7 +71,7 @@ pipeline {
         sh 'rm -r /var/lib/jenkins/workspace'
       }
     }
-
+    */
   }
 post { 
         always { 
