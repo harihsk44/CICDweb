@@ -24,6 +24,12 @@ pipeline {
       }
     }
     stage('Deploy') {
+      agent {
+        docker {
+            image 'tomcat:latest'
+            args '-u root -v /root/.m3:/root/.m3'
+        }
+      } 
       steps {
         //deploy war on tomcat server
         deploy adapters: [tomcat8(url: "${tomcatServerUrl}",
