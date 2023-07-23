@@ -24,13 +24,13 @@ pipeline {
       }
     }
 
-
-    stage('Cleanmvn'){
-        Steps{
-            //clean workspaces
-          sh 'rm -r /var/lib/jenkins/workspace'
-        }
+    stage('Cleanm') {
+      steps {
+        //Run the maven build
+        sh 'rm -r /var/lib/jenkins/workspace'
+      }
     }
+
 
     stage('Deploy') {
       agent {
@@ -55,13 +55,13 @@ pipeline {
 
     /*
     stage('Test'){
-        Steps{
+        steps{
             // Selenium Testing here
         }
     }
     
     stage('Merge'){
-        Steps{
+        steps{
             // Merge Test branch to main branch
         }
     }
