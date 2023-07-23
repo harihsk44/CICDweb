@@ -24,14 +24,9 @@ pipeline {
       }
     }
 
-    stage('Cleanm') {
-      steps {
-        //Run the maven build
-        sh 'rm -r /var/lib/jenkins/workspace'
-      }
-    }
+    
 
-
+// realised that i cant reuse the same docker cloud for tomcat somehow
     stage('Deploy') {
       agent {
         docker {
@@ -52,6 +47,8 @@ pipeline {
       }
     }
 
+    
+
 
     /*
     stage('Test'){
@@ -66,6 +63,13 @@ pipeline {
         }
     }
     */
+
+    stage('Cleanm') {
+      steps {
+        //basically deletes the workspace folder completely
+        sh 'rm -r /var/lib/jenkins/workspace'
+      }
+    }
 
   }
 post { 
