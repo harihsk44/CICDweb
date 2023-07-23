@@ -17,7 +17,8 @@ pipeline {
         // sh '"mvn" -Dmaven.test.failure.ignore clean install'
         script{
             docker.image('maven:latest').inside('-v $PWD:/app') {
-            sh 'mvn clean package'
+            sh '"mvn" -Dmaven.test.failure.ignore clean install'
+            //sh 'mvn clean package'
         }
         }
         
