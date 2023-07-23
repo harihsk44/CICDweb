@@ -56,6 +56,7 @@ pipeline {
 post { 
         always { 
             cleanWs()
+// do an rm -r on /var/lib/jenkins/workspace if any workspace error comes
         }
     }
 }
