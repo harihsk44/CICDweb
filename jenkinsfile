@@ -12,15 +12,12 @@ pipeline {
 
     }*/
     stage('Build') {
-      agent {
-        docker {
-            image 'maven:latest'
-            args '-u root -v /root/.m2:/root/.m2'
-        }
-      }
       steps {
         //Run the maven build
-        sh '"mvn" -Dmaven.test.failure.ignore clean install'
+        // sh '"mvn" -Dmaven.test.failure.ignore clean install'
+        docker.image('maven:latest').inside('-v $PWD:/app') {
+                sh 'mvn clean package'
+        }
       }
     }
 
