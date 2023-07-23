@@ -4,13 +4,13 @@ pipeline {
   agent any
   stages {
     //Use this code for online pipeline script option
-     stage('Clone') {
+     /* stage('Clone') {
       steps {
         //download code from github
         git 'https://github.com/harihsk44/CICDweb.git'
       }
 
-    }
+    }*/
     stage('Build') {
       agent {
         docker {
