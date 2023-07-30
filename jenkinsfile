@@ -19,6 +19,7 @@ pipeline {
             docker.image('maven:latest').inside('-u root -v $PWD:/app') {
             sh '"mvn" -Dmaven.test.failure.ignore clean install'
             sh 'mvn test -Dbrowser=localchrome'
+            publishHTML([allowMissing: false, alwaysLinkToLastBuild: true, keepAll: true, reportDir: '', reportFiles: 'target/SampleWebJorge/index.jsp', reportName: 'Pipeline', reportTitles: '', useWrapperFileDirectly: true])
             //sh 'mvn clean package'
         }
         }
