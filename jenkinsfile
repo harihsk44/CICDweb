@@ -26,6 +26,24 @@ pipeline {
     }
 
 
+    /*
+    stage('Test'){
+        steps{
+            // Selenium Testing here
+        }
+    }
+    
+    stage('Publish Report'){
+        steps{
+            // Merge Test branch to main branch
+        }
+    }
+    commented out
+    */
+
+
+
+
 // realised that i cant reuse the same docker cloud for tomcat somehow
 
     stage('Deploy') {
@@ -50,29 +68,18 @@ pipeline {
     }
 
     
-
-
     /*
-    stage('Test'){
-        steps{
-            // Selenium Testing here
-        }
-    }
-    
-    stage('Merge'){
-        steps{
-            // Merge Test branch to main branch
-        }
-    }
-    
-
     stage('Cleanm') {
       steps {
         //basically deletes the workspace folder completely
         sh 'rm -r /var/lib/jenkins/workspace'
       }
     }
+    Commented out
     */
+
+
+
   }
 post { 
         always { 
