@@ -26,13 +26,15 @@ pipeline {
     }
 
 
-    /*
+    
     stage('Test'){
         steps{
             // Selenium Testing here
+            sh 'mvn test -Dbrowser=localchrome'
         }
     }
-    
+
+    /*
     stage('Publish Report'){
         steps{
             // Merge Test branch to main branch
