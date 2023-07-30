@@ -57,6 +57,7 @@ pipeline {
 // realised that i cant reuse the same docker cloud for tomcat somehow
 
     stage('Deploy') {
+
       /* agent {
         docker {
             image 'tomcat:latest'
@@ -64,6 +65,7 @@ pipeline {
         }
       // currently docker is only able to work once in a pipeline. Using docker twice causes issues
       } */
+
       steps {
         //deploy war on tomcat server
         deploy adapters: [tomcat8(url: "${tomcatServerUrl}",
