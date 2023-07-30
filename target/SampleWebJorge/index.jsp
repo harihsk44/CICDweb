@@ -118,7 +118,8 @@
       </div>
     </header>
     <aside class="left">
-      <img src="./assets/html/mr-camel.jpg" width="160px" />
+      <img src="https://t2.gstatic.com/licensed-image?q=tbn:ANd9GcTHCqctJ2BtG6aq1GqcbNpcxSrYty37mInE4iHxmM66QgBk_i7ftV_W23SBUFgNl3Bx
+" width="160px" />
       <ul>
         <li><a class="active" href="#home">Home</a></li>
         <li><a href="#career">Career</a></li>
