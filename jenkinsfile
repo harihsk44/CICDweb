@@ -14,13 +14,19 @@ pipeline {
     stage('Build-test') {
       steps {
         //Run the maven build
-        // sh '"mvn" -Dmaven.test.failure.ignore clean install'
+        // sh '"mvn" -Dmaven.test.failure.ignore clean install
+        // docker currently creates an image during runtime 
         script{
             docker.image('maven:latest').inside('-u root -v $PWD:/app') {
-            sh '"mvn" -Dmaven.test.failure.ignore clean install'
+            //sh '"mvn" -Dmaven.test.failure.ignore clean install'
+            sh 'mvn clean install'
+            sh 'mvn compile'
+            //sh 'mvn clean package'
+  
+            // selenium testing
             sh 'mvn test -Dbrowser=localchrome'
             publishHTML([allowMissing: false, alwaysLinkToLastBuild: true, keepAll: true, reportDir: '', reportFiles: 'target/SampleWebJorge/index.jsp', reportName: 'Pipeline', reportTitles: '', useWrapperFileDirectly: true])
-            //sh 'mvn clean package'
+            
         }
         }
         
