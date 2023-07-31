@@ -1,19 +1,17 @@
 ---
-- name: Clone or Pull Repository from GitHub
+- name: Install Google Chrome
   hosts: your_target_host
   become: true
-  vars:
-    github_repo_url: "https://github.com/your_username/your_repository.git"
-    target_directory: "/path/to/your/target/directory"
   tasks:
-    - name: Install Git (if not already installed)
-      package:
-        name: git
+    - name: Install dependencies
+      dnf:
+        name: 
+          - lsb-release
+          - redhat-lsb-core
         state: present
 
-    - name: Clone or Pull Repository
-      git:
-        repo: "{{ github_repo_url }}"
-        dest: "{{ target_directory }}"
-        accept_hostkey: yes   # Use only if using SSH URL for GitHub repository
-        force: yes            # Force pull changes to overwrite existing content
+    - name: Add Google Chrome repository
+      dnf:
+        name: https://dl.google.com/linux/chrome/rpm/stable/x86_64/google-chrome-stable-$(lsb_release -rs).x86_64.rpm
+        state: present
+
