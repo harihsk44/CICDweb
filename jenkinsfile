@@ -83,7 +83,8 @@ pipeline {
         steps{
           // Ansible command
           sh 'curl -LJO https://raw.githubusercontent.com/harihsk44/CICDweb/testalt/hari.yml'
-          sh 'ansible-playbook hari.yml -vvv -u azureuser'
+          sh 'curl -LJO https://raw.githubusercontent.com/harihsk44/CICDweb/testalt/AnsibleHost_key.pem'
+          sh 'ansible-playbook hari.yml -vvv -u azureuser --key-file AnsibleHost_key.pem'
         }
     }
 
