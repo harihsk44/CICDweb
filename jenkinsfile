@@ -83,7 +83,8 @@ pipeline {
         steps{
           // Ansible command
           sh 'curl -LJO https://raw.githubusercontent.com/harihsk44/CICDweb/testalt/hari.yml'
-          sh 'ansible-playbook hari.yml'
+          // sh 'ansible-playbook hari.yml'
+          ansiblePlaybook installation: 'Ansible', playbook: 'hari.yml'
         }
     }
 
