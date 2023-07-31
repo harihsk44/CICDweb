@@ -1,0 +1,19 @@
+---
+- name: Clone or Pull Repository from GitHub
+  hosts: your_target_host
+  become: true
+  vars:
+    github_repo_url: "https://github.com/your_username/your_repository.git"
+    target_directory: "/path/to/your/target/directory"
+  tasks:
+    - name: Install Git (if not already installed)
+      package:
+        name: git
+        state: present
+
+    - name: Clone or Pull Repository
+      git:
+        repo: "{{ github_repo_url }}"
+        dest: "{{ target_directory }}"
+        accept_hostkey: yes   # Use only if using SSH URL for GitHub repository
+        force: yes            # Force pull changes to overwrite existing content
