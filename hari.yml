@@ -1,6 +1,6 @@
 ---
 - name: Install Google Chrome
-  hosts: 4.194.3.250
+  hosts: myAnsibleHost
   become: true
   tasks:
     - name: Install dependencies
