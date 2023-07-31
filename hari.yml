@@ -1,17 +1,29 @@
 ---
 - name: Install Google Chrome
-  hosts: your_target_host
+  hosts: 4.194.3.250
   become: true
   tasks:
     - name: Install dependencies
-      dnf:
+      apt:
         name: 
-          - lsb-release
-          - redhat-lsb-core
+          - apt-transport-https
+          - ca-certificates
+          - curl
+          - gnupg
         state: present
 
-    - name: Add Google Chrome repository
-      dnf:
-        name: https://dl.google.com/linux/chrome/rpm/stable/x86_64/google-chrome-stable-$(lsb_release -rs).x86_64.rpm
+    - name: Add Google Chrome APT repository key
+      apt_key:
+        url: https://dl.google.com/linux/linux_signing_key.pub
+        state: present
+
+    - name: Add Google Chrome APT repository
+      apt_repository:
+        repo: deb [arch=amd64] https://dl.google.com/linux/chrome/deb/ stable main
+        state: present
+
+    - name: Install Google Chrome
+      apt:
+        name: google-chrome-stable
         state: present
 
