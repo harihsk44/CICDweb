@@ -83,7 +83,7 @@ pipeline {
         steps{
           // Ansible command
           sshagent(credentials : ['ansible']) {
-            sh 'ssh -v azureuser@172.173.216.209'
+            sh 'ssh -v azureuser@4.194.3.250'
             sh 'ansible-playbook hari.yml'
           }
           //sh 'curl -LJO https://raw.githubusercontent.com/harihsk44/CICDweb/testalt/hari.yml'
