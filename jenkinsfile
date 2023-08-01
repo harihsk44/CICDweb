@@ -26,8 +26,10 @@ pipeline {
   
             // selenium testing
             sh 'mvn test -Dbrowser=localchrome'
+            // tests mvn code in localchrome browser 
+
             publishHTML([allowMissing: false, alwaysLinkToLastBuild: true, keepAll: true, reportDir: '', reportFiles: 'target/SampleWebJorge/index.jsp', reportName: 'Pipeline', reportTitles: '', useWrapperFileDirectly: true])
-            
+            // publishes the results back to jenkins 
         }
         }
         
@@ -35,17 +37,12 @@ pipeline {
     }
 
 
+    
     /*
-    stage('Test'){
-        steps{
-            // Selenium Testing here
-            
-        }
-    }
-
-    stage('Publish Report'){
+    stage('Merging'){
         steps{
             // Merge Test branch to main branch
+            // Might not need this
         }
     }
     commented out
@@ -91,23 +88,13 @@ pipeline {
           */
 
           sh 'curl -LJO https://raw.githubusercontent.com/harihsk44/CICDweb/testalt/hari.yml'
-          sh 'curl -LJO https://raw.githubusercontent.com/harihsk44/CICDweb/testalt/AnsibleHost_key.pem'
+          // sh 'curl -LJO https://raw.githubusercontent.com/harihsk44/CICDweb/testalt/AnsibleHost_key.pem'
+          // Pulls playbook file from github (installed ansible host public key manually) 
+
           sh 'ansible-playbook hari.yml -vvv -u azureuser --key-file "/var/lib/jenkins/.ssh/AnsibleHost_key.pem" '
-          // specified ansible host Public key file and azureuser as user in ansible host 
+          // specified ansible host Public key file manually and azureuser as user in ansible host 
         }
     }
-
-    
-    /*
-    stage('Cleanm') {
-      steps {
-        //basically deletes the workspace folder completely
-        sh 'rm -r /var/lib/jenkins/workspace'
-      }
-    }
-    Commented out
-    */
-
 
 
   }
