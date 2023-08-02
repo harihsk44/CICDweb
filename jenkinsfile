@@ -87,11 +87,11 @@ pipeline {
           }
           */
 
-          sh 'curl -LJO https://raw.githubusercontent.com/harihsk44/CICDweb/testalt/hari.yml'
+          sh 'curl -LJO https://raw.githubusercontent.com/harihsk44/CICDweb/testalt/ansibleplaybook.yml'
           // sh 'curl -LJO https://raw.githubusercontent.com/harihsk44/CICDweb/testalt/AnsibleHost_key.pem'
           // Pulls playbook file from github (installed ansible host public key manually) 
 
-          sh 'ansible-playbook hari.yml -vvv -u azureuser --key-file "/var/lib/jenkins/.ssh/AnsibleHost_key.pem" '
+          sh 'ansible-playbook ansibleplaybook.yml -vvv -u azureuser --key-file "/var/lib/jenkins/.ssh/AnsibleHost_key.pem" '
           // specified ansible host Public key file manually and azureuser as user in ansible host 
         }
     }
