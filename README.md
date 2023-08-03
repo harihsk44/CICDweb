@@ -1,6 +1,10 @@
-SampleWebApplication
+CI/CD Pipeline for a sample Web Application
 ====================
 
-Simple "Hello world" web using Apache Maven, Eclipse Kepler, Spring and Apache Tomcat
+CICD pipeline using Maven, Git, Jenkins, Docker, Ansible, Selenium and Nagios
 
-File SampleWebJorge.war is located in the folder tarjet
+Simple Biography web app used to demonstrate
+
+Jenkins pipeline script in jenkinsfile
+
+File SampleWebJorge.war is located in the folder target
