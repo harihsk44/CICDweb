@@ -58,7 +58,8 @@ pipeline {
        agent {
         docker {
             image 'tomcat:latest'
-            args '-u root -v /root/.m3:/root/.m3'
+            args '-u root -v'
+            //args '-u root -v /root/.m3:/root/.m3'
         }
       // docker changes
       } 
