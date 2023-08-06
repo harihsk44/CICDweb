@@ -54,7 +54,7 @@ pipeline {
 // realised that i cant reuse the same docker cloud for tomcat somehow
 
     stage('Deploy') {
-        
+        /*
        agent {
         docker {
             image 'tomcat:latest'
@@ -62,7 +62,8 @@ pipeline {
             //args '-u root -v /root/.m3:/root/.m3'
         }
       // docker changes
-      } 
+      }
+      */
       
       
       steps {
