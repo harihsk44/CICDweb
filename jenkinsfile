@@ -10,7 +10,7 @@ pipeline {
         git 'https://github.com/harihsk44/CICDweb.git'
       }
 
-
+// g
     }*/
     stage('Build-test') {
       steps {
